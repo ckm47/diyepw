@@ -4,11 +4,9 @@ import sys
 import pkg_resources
 from datetime import datetime
 
-_LOG_LEVEL = logging.INFO
+_LOG_LEVEL = logging.CRITICAL
 
-log_dir = pkg_resources.resource_filename("diyepw", "log")
-if not os.path.exists(log_dir): # pragma: no cover
-    os.mkdir(log_dir)
+log_dir = /tmp/diyepw
 
 _log_path = os.path.join(log_dir, str(datetime.now()).replace(' ', '_').replace(':', '_') +'.log')
 _file_handler = logging.FileHandler(_log_path)
