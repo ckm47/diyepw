@@ -7,7 +7,9 @@ from datetime import datetime
 _LOG_LEVEL = logging.CRITICAL
 
 log_dir = '/tmp/diyepw'
-
+if not os.path.exists(log_dir): # pragma: no cover
+    os.mkdir(log_dir)
+    
 _log_path = os.path.join(log_dir, str(datetime.now()).replace(' ', '_').replace(':', '_') +'.log')
 _file_handler = logging.FileHandler(_log_path)
 _file_handler.setFormatter(logging.Formatter("%(asctime)s [diyepw.%(levelname)s] %(message)s"))
